@@ -42,9 +42,9 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - fix DNS issues with .local addresses: http://superuser.com/a/706318 
 
 ## Install Java JDK
-- sudo add-apt-repository ppa:webupd8team/java 
-- sudo apt update; sudo apt install oracle-java8-installer 
-- sudo apt install oracle-java8-set-default 
+- sudo add-apt-repository ppa:webupd8team/java
+- sudo apt update; sudo apt install oracle-java8-installer
+- sudo apt install oracle-java8-set-default 
 
 ## Vagrant
 - install latest versions of virtualbox and vagrant 
@@ -92,9 +92,9 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - indicator multiload: https://launchpad.net/~indicator-multiload/+archive/ubuntu/stable-daily
 
 ## Install keypass2
-- sudo apt-add-repository ppa:jtaylor/keepass 
-- sudo apt-get update s 
-- udo apt-get install keepass2 
+- sudo apt-add-repository ppa:jtaylor/keepass
+- sudo apt-get update
+- udo apt-get install keepass2
 
 ## Install Unity tweak tool
 - sudo apt-get install unity-tweak-tool 
