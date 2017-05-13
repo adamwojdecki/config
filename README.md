@@ -1,20 +1,18 @@
 ## Ubuntu 16.04
 
 ## Set up Mac wireless keyboard
-- article: https://help.ubuntu.com/community/AppleKeyboard 
-- these commands should do: 
-	-- echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf 
-	-- echo options hid_apple iso_layout=0 | sudo tee -a /etc/modprobe.d/hid_apple.conf 
-	-- sudo update-initramfs -u -k all 
-	-- sudo reboot 
+- article: https://help.ubuntu.com/community/AppleKeyboard
+- these commands should do:
+  - echo options hid_apple iso_layout=0 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+  - sudo update-initramfs -u -k all
+  - sudo reboot
 - swap Cmd with Ctrl keys:
-	-- http://askubuntu.com/a/766216 (change in pc105 keyboard)
-	-- more details: https://wiki.archlinux.org/index.php/X_KeyBoard_extension) 
+  - http://askubuntu.com/a/766216 (change in pc105 keyboard)
+  - more details: https://wiki.archlinux.org/index.php/X_KeyBoard_extension)
 - allow Ctrl-Alt-F* keys:
-	-- http://unix.stackexchange.com/a/34164
-	-- http://unix.stackexchange.com/a/242293
-	-- http://askubuntu.com/a/582498 
-
+  - http://unix.stackexchange.com/a/34164
+  - http://unix.stackexchange.com/a/242293
+  - http://askubuntu.com/a/582498 
 ## Install Nvidia drivers
 - http://askubuntu.com/a/760935 
 
@@ -37,10 +35,10 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - install vpn gui in network manager: sudo apt install network-manager-openvpn-gnome, then add in GUIedit  
 - route only needed traffic via VPN: edit connections -> IPv4 Settings -> Routes -> check `Use this connection only for resources on its network` (then the same in IPv6) 
 - fix DNS issue (dnsmasq as local dns cache, https://wiki.archlinux.org/index.php/dnsmasq) 
-	-- `/etc/NetworkManager/NetworkManager.conf` -> comment out `#dns=dnsmasq` 
-	-- then restart computer (restarting network service is not enough, I wasted so much time because of it…) 
-	-- more details: https://bugs.launchpad.net/ubuntu/+source/openvpn/+bug/1211110 
-	-- even more details: http://www.ubuntugeek.com/how-to-disable-dnsmasq-in-ubuntu-12-04precise.html
+  - `/etc/NetworkManager/NetworkManager.conf` -> comment out `#dns=dnsmasq`
+  - then restart computer (restarting network service is not enough, I wasted so much time because of it…)
+  - more details: https://bugs.launchpad.net/ubuntu/+source/openvpn/+bug/1211110
+  - even more details: http://www.ubuntugeek.com/how-to-disable-dnsmasq-in-ubuntu-12-04precise.html
 - fix DNS issues with .local addresses: http://superuser.com/a/706318 
 
 ## Install Java JDK
@@ -68,12 +66,12 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 
 ## Make Intellij shortcuts work as on Mac
 - swap ctrl and cmd key in mappings http://stackoverflow.com/a/14119752
-	-- get mac mappings from `/opt/idea-IU-162.2032.8/lib/resources.jar` -> `idea/Keymap_Mac.xml`
-	-- update it, swap `control` with `meta` 
-	-- then copy over to /home/adam/.IntelliJIdea2016.2/config/keymaps 
-	-- issue with `id=TestGestureAction` - better to remove it due to `com.intellij.openapi.util.InvalidDataException: Attribute 'keystroke' cannot be null; Action's id=TestGestureAction;`
+  - get mac mappings from `/opt/idea-IU-162.2032.8/lib/resources.jar` -> `idea/Keymap_Mac.xml`
+  - update it, swap `control` with `meta`
+  - then copy over to /home/adam/.IntelliJIdea2016.2/config/keymaps
+  - issue with `id=TestGestureAction`
+  - better to remove it due to `com.intellij.openapi.util.InvalidDataException: Attribute 'keystroke' cannot be null; Action's id=TestGestureAction;`
 - in Intellij add this to Custom Properties (menu Help -> Edit VM Custom Properties): `keymap.windows.as.meta=true`
-
 
 ## Install NodeJS
 - PPA: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04 
@@ -109,10 +107,10 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - PC as server
 - MacBook as client
 - replace `Ctrl` with `Super` (PC Synergy -> client screen)
-- make mouse back and forth key work fines: https://github.com/symless/synergy/issues/58#issuecomment-248043811 
-	— save config 
-	— add mousebutton stuff to options section 
-	— use that config in server synergy app 
+- make mouse back and forth key work fines: https://github.com/symless/synergy/issues/58#issuecomment-248043811
+  - save config
+  - add mousebutton stuff to options section
+  - use that config in server synergy app 
 
 ## Install SSHFS to be able to mount via ssh
 - https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh 
@@ -130,6 +128,6 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 
 ## Encryption
 - encrypt ~/Private directory:
-	— https://help.ubuntu.com/community/EncryptedPrivateDirectory 
-	— this has issues with long paths..
+  - https://help.ubuntu.com/community/EncryptedPrivateDirectory
+  - this has issues with long paths..
 - encrypt partitions: http://thesimplecomputer.info/full-disk-encryption-with-ubuntu
