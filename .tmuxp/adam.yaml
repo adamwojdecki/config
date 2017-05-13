@@ -1,0 +1,10 @@
+session_name: dev
+start_directory: '~/Development/Casumo-Engine'
+windows:
+- window_name: dev window
+  layout: tiled
+  panes:
+  - focus: true
+  - null
+  - null
+  - null
