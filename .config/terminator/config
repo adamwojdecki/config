@@ -22,8 +22,8 @@
       maximised = False
       order = 0
       parent = ""
-      position = 97:80
-      size = 2324, 1244
+      position = 40:40
+      size = 2484, 1344
       title = adam@Adam-PC: ~
       type = Window
     [[[child1]]]
