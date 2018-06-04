@@ -36,9 +36,11 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - copy your keys to ~/.ssh
 - sudo apt install openvpn easy-rsa network-manager-openvpn network-manager-openvpn-gnome 
 - sudo service network-manager restart
+- copy config & certificate to ~/.config/openvpn
 - add profile in Settings -> Network
 - route only needed traffic via VPNm check `Use this connection only for resources on its network` (IPv4+IPv6) 
-- fix DNS issues with .local addresses: http://superuser.com/a/706318 
+- fix DNS issues: https://askubuntu.com/a/1036209
+- fix DNS issues with .local addresses: http://superuser.com/a/706318
 
 ## Apps (from www)
 - Chrome
