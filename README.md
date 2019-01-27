@@ -111,9 +111,8 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - current limit (8k): cat /proc/sys/fs/inotify/max_user_watches 
 - increase limit to 512k: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit 
 
-## Install KeyPass2
-- sudo apt-add-repository ppa:jtaylor/keepass
-- sudo apt-get install keepass2
+## Install KeePassXC
+- sudo apt install keepassxc
 
 ## Gnome
 - install gnome-tweak-tool (apt)
