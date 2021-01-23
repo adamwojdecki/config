@@ -47,7 +47,7 @@
 ## Synergy
 - use Synergy 1, set config from https://github.com/adamwojdecki/config/blob/master/.synergy.conf
 -- it might be needed to reset cerfiticates on the client (set error level to debug for the modal to appear), firewall port: 24800
-- set up startup on boot: https://askubuntu.com/a/896659 + https://askubuntu.com/a/195036 (5s)
+- add the following command to Ubuntu Startup Applications: sh -c "sleep 10 && /usr/bin/synergy"
 
 ## Window management
 - install jump script to /usr/local/bin/jump, https://askubuntu.com/a/189603
