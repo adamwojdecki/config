@@ -111,6 +111,10 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - current limit (8k): cat /proc/sys/fs/inotify/max_user_watches 
 - increase limit to 512k: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit 
 
+## Increase scroll speed in Chrome
+- http://www.webupd8.org/2015/12/how-to-change-mouse-scroll-wheel-speed.html
+-- use "chrome" as app name
+
 ## Install KeePassXC
 - sudo apt install keepassxc
 
