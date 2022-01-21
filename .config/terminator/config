@@ -1,111 +1,106 @@
 [global_config]
-  enabled_plugins = TerminalShot, APTURLHandler, MavenPluginURLHandler
   handle_size = 2
-  inactive_color_offset = 0.9
-  suppress_multiple_term_dialog = True
-  title_font = Sans 12
   title_hide_sizetext = True
   title_transmit_bg_color = "#807e7f"
+  inactive_color_offset = 0.9
+  enabled_plugins = TerminalShot, APTURLHandler, MavenPluginURLHandler
+  suppress_multiple_term_dialog = True
+  title_font = Sans 12
 [keybindings]
-  broadcast_all = None
-  broadcast_group = None
-  broadcast_off = None
   copy = <Primary><Shift>c
-  page_down_half = None
   page_up_half = None
+  page_down_half = None
+  broadcast_off = None
+  broadcast_group = None
+  broadcast_all = None
+[profiles]
+  [[default]]
+    background_color = "#252526"
+    cursor_color = "#f3f3f3"
+    font = Ubuntu Mono 13
+    foreground_color = "#deddda"
+    scrollback_lines = 5000
+    palette = "#000000:#aa0000:#489cd6:#aa5500:#99c1f1:#62a0ea:#00aaaa:#aaaaaa:#555555:#ff5555:#1c71d8:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    use_system_font = False
+    split_to_group = True
+    background_image = None
 [layouts]
   [[default]]
     [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 30:27
+      maximised = False
       fullscreen = False
+      size = 2484, 1339
+      title = adam@Adam-PC: ~
       last_active_term = 065f44dc-5d76-4ccb-8edb-e710f58193ca
       last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 40:40
-      size = 2484, 1344
-      title = adam@Adam-PC: ~
-      type = Window
     [[[child1]]]
-      order = 0
+      type = VPaned
       parent = child0
-      position = 605
-      ratio = 0.487138263666
-      type = VPaned
+      order = 0
+      position = 651
+      ratio = 0.48800599700149927
     [[[child2]]]
-      order = 0
-      parent = child1
-      position = 1161
-      ratio = 0.5
       type = HPaned
-    [[[child5]]]
-      order = 1
       parent = child1
-      position = 1161
-      ratio = 0.5
-      type = HPaned
-    [[[child7]]]
-      order = 1
-      parent = child5
-      position = 233
-      ratio = 0.367346938776
-      type = VPaned
-    [[[child9]]]
-      order = 1
-      parent = child7
-      position = 220
-      ratio = 0.549751243781
-      type = VPaned
-    [[[terminal10]]]
-      directory = /home/adam/Development/Casumo-Engine
       order = 0
-      parent = child9
-      profile = default
-      type = Terminal
-      uuid = 0d72e5b8-b393-4b3d-8cb6-53dd0dc67052
-    [[[terminal11]]]
-      directory = /home/adam/Development/Casumo-Engine
-      order = 1
-      parent = child9
-      profile = default
-      type = Terminal
-      uuid = 515fde5e-f724-419b-9157-fc1660a865ad
+      position = 1240
+      ratio = 0.5002016942315449
     [[[terminal3]]]
-      directory = /home/adam/Development/Casumo-Engine
-      order = 0
-      parent = child2
-      profile = default
       type = Terminal
+      parent = child2
+      order = 0
+      profile = default
       uuid = 065f44dc-5d76-4ccb-8edb-e710f58193ca
     [[[terminal4]]]
-      directory = /home/adam/Development/Casumo-Engine
-      order = 1
+      type = Terminal
       parent = child2
+      order = 1
       profile = default
-      type = Terminal
       uuid = 1ad9be4c-0607-4ab5-957a-d2e329622d2b
+    [[[child5]]]
+      type = HPaned
+      parent = child1
+      order = 1
+      position = 1240
+      ratio = 0.5002016942315449
     [[[terminal6]]]
-      directory = /home/adam/Development/Casumo-Engine
-      order = 0
+      type = Terminal
       parent = child5
-      profile = default
-      type = Terminal
-      uuid = ceef1c79-fa8d-43c7-9db1-6e0ac30e54ea
-    [[[terminal8]]]
-      directory = /home/adam/Development/Casumo-Engine
       order = 0
-      parent = child7
       profile = default
+      uuid = ceef1c79-fa8d-43c7-9db1-6e0ac30e54ea
+    [[[child7]]]
+      type = VPaned
+      parent = child5
+      order = 1
+      position = 251
+      ratio = 0.368575624082232
+    [[[terminal8]]]
       type = Terminal
+      parent = child7
+      order = 0
+      profile = default
       uuid = 3c2b9a45-6f81-4209-8970-4c07cf597648
+    [[[child9]]]
+      type = VPaned
+      parent = child7
+      order = 1
+      position = 206
+      ratio = 0.48130841121495327
+    [[[terminal10]]]
+      type = Terminal
+      parent = child9
+      order = 0
+      profile = default
+      uuid = 0d72e5b8-b393-4b3d-8cb6-53dd0dc67052
+    [[[terminal11]]]
+      type = Terminal
+      parent = child9
+      order = 1
+      profile = default
+      uuid = 515fde5e-f724-419b-9157-fc1660a865ad
 [plugins]
-[profiles]
-  [[default]]
-    background_color = "#300a24"
-    background_image = None
-    font = Ubuntu Mono 13
-    foreground_color = "#f3f3f3"
-    scroll_on_output = False
-    scrollback_lines = 5000
-    split_to_group = True
-    use_system_font = False

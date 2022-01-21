@@ -1,13 +1,105 @@
-## Ubuntu 18.04
+## Ubuntu 21.10
 
 ## Installation
 - disable SCM (Compatibility Support Module) in BIOS
 - if Ubuntu installation doesn't work from USB then it might be because of GPU drivers (in my case GTX 1070) then see this: https://askubuntu.com/a/946310
-- set full disk encryption
+- set full disk encryption (LVM)
+- if needed: update grub menu using grub-customizer (apt)
+- if needed: set boot drive to nvme UEFI
+- switch to nvidia-driver-495
+- if needed: fix login appearing on incorrect screen: https://askubuntu.com/questions/1043337/is-there-to-make-the-login-screen-appear-on-the-external-display-in-18-04
 
-## Set up vi / vim
-- get latest vi by getting vim: sudo apt-get install vim 
-- fix arrow keys: http://askubuntu.com/a/353944 
+## Apps / libs
+- terminator (apt)
+  - config: https://github.com/adamwojdecki/config/blob/master/.config/terminator/config
+  - set as default terminal: https://askubuntu.com/questions/1261901/unable-to-set-terminator-as-default-terminal-in-ubuntu-with-cinnamon-desktop
+- vim (apt) to get the latest
+  - fix arrow keys: http://askubuntu.com/a/353944
+- gufw (apt), firewall GUI
+- chrome (deb)
+- keepassxc (deb)
+- veracrypt (deb)
+- visual studio code (deb)
+  - disable telemetry & reporting: https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting)
+- git (apt)
+  - conditional .gitconfig: https://blog.jiayu.co/2019/02/conditional-git-configuration/
+- smartgit (deb)
+- jetbrains toolbox (installer)
+- sdkman (installer)
+- net-tools (apt) to get _ifconfig_
+- htop (apt)
+- iotop (apt)
+- sshfs (apt), https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh
+- docker (installer, don't require sudo)
+- imagemagick (apt) to get _convert_
+   - give it more memory and disk space: https://stackoverflow.com/questions/31407010/cache-resources-exhausted-imagemagick/53699200
+- ubuntu-restricted-extras (apt)
+- sudo snap remove --purge firefox
+- flatpak (https://flatpak.org/setup/Ubuntu/)
+  - then _snap remove snap-store_ (as deb one gets installed)
+  - then restart
+- handbrake (flatpak)
+- mkvtoolnix (flatpak)
+- spotify (snap)
+- jq (apt)
+
+## ZSH
+- install zsh (apt)
+- make it default shell: _chsh -s $(which zsh)_, then logout and in
+- install oh-my-zsh (https://github.com/ohmyzsh/ohmyzsh)
+- in ~/.zshrc:
+  - set _plugins_: git z sdk sudo history history-substring-search timer
+  - set _reminder_ as update mode
+  - copy content (to .zshrc) from https://github.com/adamwojdecki/config/blob/master/.zshrc
+  - set theme: macovsky (with changes: no double blank space, blue '$')
+
+## Synergy
+- use Synergy 1 Pro
+- set config from https://github.com/adamwojdecki/config/blob/master/.synergy.conf
+  - it might be needed to reset cerfiticates on the client (set error level to debug for the modal to appear), firewall port: 24800
+- add the following command to Ubuntu Startup Applications: sh -c "sleep 5 && /usr/bin/synergy"
+
+## Window management
+- install jump script to /usr/local/bin/jump, https://askubuntu.com/a/189603
+- add shortcut for Terminator: jump terminator
+- add shortcut to Home Folder (Super + E)
+- add shortcut for screenshot (Shift+Ctrl+3, Shift+Ctrl+4)
+- remove shortcut for 'Move window' (Alt + F7) as it's used by Intellij
+
+## Increase scroll speed in Chrome
+- install imwheel (apt), https://wiki.archlinux.org/title/IMWheelhttps://wiki.archlinux.org/title/IMWheel
+- copy https://github.com/adamwojdecki/config/blob/master/.imwheelrc to home directory
+- add to Startup Applications: imwheel --buttons "4 5"
+- disable smooth scrolling: chrome://flags/#smooth-scrolling
+
+## Gnome Libs
+- install gnome-shell-extension-prefs (apt)
+- install gnome-tweaks (apt)
+- install dconf-editor (apt)
+- install chrome-gnome-shell (apt)
+- install browser extension for snome shell extenions by browsing: https://extensions.gnome.org/ and clicking 'install'
+
+## Gnome
+- dark mode: Settings -> Appearance -> Dark
+- change placement of titlebar buttons to left: Tweaks -> Titlebars -> Titlebar Buttons -> Placement: Left
+- remove maximize titlebar button: Tweaks -> Titlebars -> Maximize: false
+- disable middle click paste: Tweaks -> Middle Click Paste -> disable
+- add weekday to date: Tweaks -> Clock -> Weekday -> enable
+- auto-hide dock: Settings -> Appearance -> Auto-hide Dock
+- buttom dock: Settings -> Appearance -> Dock: Bottom
+- center dock panel: gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+- minimize on app click in dock: gsettings set org.gnome.shell.extensions.dash-to-dock click-action minimize
+
+## Gnome Extensions
+- Hide Activities button: https://extensions.gnome.org/extension/4325/hide-activities-button/
+- OpenWeather: https://extensions.gnome.org/extension/750/openweather/
+- NetSpeed: https://extensions.gnome.org/extension/104/netspeed/
+- System-monitor: https://extensions.gnome.org/extension/120/system-monitor/ (check prerequistes)
+- Sensory Perception: https://extensions.gnome.org/extension/1145/sensory-perception/ (check prerequistes)
+- Removable Drive Menu: https://extensions.gnome.org/extension/7/removable-drive-menu/
+- No Title Bar: https://extensions.gnome.org/extension/2015/no-title-bar-forked/
+  - make title bar smaller: https://unix.stackexchange.com/a/291040
+- Status Area Horizontal Spacing: https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/
 
 ## Set up Mac wireless keyboard
 - commands (https://help.ubuntu.com/community/AppleKeyboard):
@@ -16,48 +108,15 @@
   - sudo update-initramfs -u -k all
   - sudo reboot
 - swap Cmd with Ctrl keys:
-  - http://askubuntu.com/a/766216 (change in pc105 keyboard)
-  - more details: https://wiki.archlinux.org/index.php/X_KeyBoard_extension)
+  - in Gnome Tweaks -> Ctrl position -> Swap Left Win with Left Ctrl
+  - alternative: http://askubuntu.com/a/766216 (change in pc105 keyboard)
+  - more details: https://wiki.archlinux.org/index.php/X_KeyBoard_extension)
 - if needed - allow Ctrl-Alt-F* keys:
   - http://unix.stackexchange.com/a/34164
   - http://unix.stackexchange.com/a/242293
   - http://askubuntu.com/a/582498 
 
-## Terminator terminal
-- sudo apt install terminator
-- use config file: https://github.com/adamwojdecki/config/blob/master/.config/terminator/config
-- I tried using tmux (+ tmuxp) but encountered somes annoying issues with copy pasting using mouse when mouse scrolling is enabled
-- alternative:Tilix
-
-## Firewall GUI
-- sudo apt-get install gufw 
-
-## ZSH + Z
-- sudo apt install zsh
-- install oh-my-zsh from https://github.com/robbyrussell/oh-my-zsh
-- install powerlevel9k (git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes)
-- copy .zshrc to ~/ from https://github.com/adamwojdecki/config/blob/master/.zshrc
-- install z.sh (wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh)
-
-## SSHFS (to be able to mount via ssh)
-- https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh
-- sudo apt-get install sshfs
-- sudo sshfs -o allow_other adamwojdecki@192.168.3.180:/Users/adamwojdecki/Desktop/ /mnt/mac/
-
-## Synergy
-- use Synergy 1, set config from https://github.com/adamwojdecki/config/blob/master/.synergy.conf
--- it might be needed to reset cerfiticates on the client (set error level to debug for the modal to appear), firewall port: 24800
-- add the following command to Ubuntu Startup Applications: sh -c "sleep 10 && /usr/bin/synergy"
-
-## Window management
-- install jump script to /usr/local/bin/jump, https://askubuntu.com/a/189603
-- install switch-monitor script to /usr/local/bin/switch-monitor, https://github.com/ntowbinj/switch-monitor
-- add shortcut for Terminator: jump terminator
-- add shortcut for switch-monitor: switch-monitor 1
-- add shortcut to Home Folder
-- add shortcut for screenshot (Shift+Ctrl+3, Shift+Ctrl+4)
-
-## Set up VPN
+## Set up VPN (to be checked on 21.10)
 Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - copy your keys to ~/.ssh
 - sudo apt install openvpn easy-rsa network-manager-openvpn network-manager-openvpn-gnome 
@@ -75,66 +134,15 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
   -> add "dns=default" under [main]
   sudo service network-manager restart
 ```
-## Apps (from www)
-- Chrome
-- Visual Studio Code (disable telemetry & reporting: https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting)
-- Smartgit
-- Jetbrains Toolbox
 
-## Apps (sudo apt install)
-- openjdk-8-jdk
-- git-core
-- visualvm (+ VisualVM-Mbeans plugin)
-- net-tools to get 'ifconfig'
-
-## Docker
-- install from https://docs.docker.com/install/linux/docker-ce/ubuntu/
-- don't require sudo: https://askubuntu.com/a/739861
-
-## NPM
-- sudo apt install nodejs
-- sudo apt install npm
--- give new path for global packages so that sudo is not needed: https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md
--- (not sure if it is needed in the end) fix permissions so that we don't need sudo: https://stackoverflow.com/a/16151707
-- npm install -g yarn
-- npm install -g gulp
-
-## Make Intellij shortcuts work as on Mac
+## Make Intellij shortcuts work as on Mac (to be checked on 21.10)
 - swap ctrl and cmd key in mappings http://stackoverflow.com/a/14119752
   - get mac mappings from `home/adam/.local/share/JetBrains/Toolbox/apps/IDEA-C/ch-0/***.****.**/lib/resources.jar` -> `idea/Keymap_Mac.xml`
   - update it, swap `control` with `meta`
-  - then copy over to /home/adam/.IntelliJIdea****.*/config/keymaps
-  - issue with `id=TestGestureAction`: better to remove it due to `com.intellij.openapi.util.InvalidDataException: Attribute 'keystroke' cannot be null; Action's id=TestGestureAction;`
-- in Intellij add this to Custom Properties (menu Help -> Edit VM Custom Properties): `keymap.windows.as.meta=true`
+  - then copy over to /home/adam/.IntelliJIdea****.*/config/keymaps
+  - issue with `id=TestGestureAction`: better to remove it due to `com.intellij.openapi.util.InvalidDataException: Attribute 'keystroke' cannot be null; Action's id=TestGestureAction;`
+- in Intellij add this to Custom Properties (menu Help -> Edit VM Custom Properties`): `keymap.windows.as.meta=true`
 
 ## Adjust max watched files (for Intellij)
-- current limit (8k): cat /proc/sys/fs/inotify/max_user_watches 
-- increase limit to 512k: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit 
-
-## Increase scroll speed in Chrome
-- http://www.webupd8.org/2015/12/how-to-change-mouse-scroll-wheel-speed.html
--- use "chrome" as app name
-
-## Install KeePassXC
-- sudo apt install keepassxc
-
-## Gnome
-- install gnome-tweak-tool (apt)
-- install gnome-shell-extensions (apt) then reboot
-- install chrome-gnome-shell (apt), then install browser extension for snome shell extenions by browsing: https://extensions.gnome.org/ and licking 'install'
-- change placement of titlebar buttons to left: Tweaks -> Windows -> Placement -> left
-- move dock to the bottom and enable autohide: Tweaks -> Dock
-- install extension: https://extensions.gnome.org/extension/1139/apt-update-indicator/
-- install extension: https://extensions.gnome.org/extension/779/clipboard-indicator/
-- install extension: https://extensions.gnome.org/extension/744/hide-activities-button/
-- install extension: https://extensions.gnome.org/extension/750/openweather/
-- install extension: https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
-- install extension: https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/ then set horizontal padding to 6 (gnome-shell-extension-prefs)
-- install extension: https://extensions.gnome.org/extension/104/netspeed/
-- install extension: https://extensions.gnome.org/extension/120/system-monitor/, prerequistes required can be found here: https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet (reboot needed)
-- install extension: https://extensions.gnome.org/extension/1145/sensory-perception/, lm-sensors install needed (apt))
-- install extension: https://extensions.gnome.org/extension/15/alternatetab/
-- install extension: https://extensions.gnome.org/extension/7/removable-drive-menu/
-- install extension: https://extensions.gnome.org/extension/723/pixel-saver/
-- install extension: https://extensions.gnome.org/extension/1173/datetime-format/
-- install extension: https://extensions.gnome.org/extension/1276/night-light-slider/ (change 2500k to 4000k)
+- current limit (64k): cat /proc/sys/fs/inotify/max_user_watches 
+- increase limit to 512k: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit 
