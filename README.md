@@ -41,6 +41,7 @@
 - handbrake (flatpak)
 - mkvtoolnix (flatpak)
 - spotify (snap)
+- pinta (snap)
 - jq (apt)
 
 ## ZSH
