@@ -144,6 +144,8 @@ Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
   - issue with `id=TestGestureAction`: better to remove it due to `com.intellij.openapi.util.InvalidDataException: Attribute 'keystroke' cannot be null; Action's id=TestGestureAction;`
 - in Intellij add this to Custom Properties (menu Help -> Edit VM Custom Properties`): `keymap.windows.as.meta=true`
 
-## Adjust max watched files (for Intellij)
-- current limit (64k): cat /proc/sys/fs/inotify/max_user_watches 
-- increase limit to 512k: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit 
+## Adjust file limits (for Intellij and Chrome)
+- increase max watched files limit to 512k: https://youtrack.jetbrains.com/articles/IDEA-A-2/Inotify-Watches-Limit
+  - current limit (64k): cat /proc/sys/fs/inotify/max_user_watches 
+- increase max open files to 65535: https://superuser.com/questions/1200539/
+  - current linit (1024): ulimit -n
