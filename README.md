@@ -1,4 +1,4 @@
-## Ubuntu 21.10
+## Ubuntu 21.10 / 22.04
 
 ## Installation
 - disable SCM (Compatibility Support Module) in BIOS
@@ -121,19 +121,19 @@
 Guide: https://help.ubuntu.com/lts/serverguide/openvpn.html
 - copy your keys to ~/.ssh
 - sudo apt install openvpn easy-rsa network-manager-openvpn network-manager-openvpn-gnome 
-- sudo service network-manager restart
+- sudo service NetworkManager restart
 - copy config & certificate to ~/.config/openvpn
 - add profile in Settings -> Network
-- route only needed traffic via VPNm check `Use this connection only for resources on its network` (IPv4+IPv6) 
+- route only needed traffic via VPN check `Use this connection only for resources on its network` (IPv4+IPv6) 
 - enable .local addresses: http://superuser.com/a/706318
-- fix dns issues by disabling systemd-resolved:
+- in case of DNS issue with VPN (see [this](https://systemd.io/RESOLVED-VPNS/)) you can disable systemd-resolved:
 ```
   sudo systemctl disable systemd-resolved.service
   sudo service systemd-resolved stop
   sudo rm /etc/resolv.conf
   sudo vi /etc/NetworkManager/NetworkManager.conf
   -> add "dns=default" under [main]
-  sudo service network-manager restart
+  sudo service NetworkManager restart
 ```
 
 ## Make Intellij shortcuts work as on Mac (to be checked on 21.10)
