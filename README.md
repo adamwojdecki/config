@@ -30,7 +30,6 @@
 - htop (apt)
 - iotop (apt)
 - sshfs (apt), https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh
-- docker (installer, don't require sudo)
 - imagemagick (apt) to get _convert_
    - give it more memory and disk space: https://stackoverflow.com/questions/31407010/cache-resources-exhausted-imagemagick/53699200
 - ubuntu-restricted-extras (apt)
@@ -53,6 +52,12 @@
   - set _reminder_ as update mode
   - copy content (to .zshrc) from https://github.com/adamwojdecki/config/blob/master/.zshrc
   - set theme: macovsky (with changes: no double blank space, blue '$')
+
+## Docker
+- install using the instructions from their website (sudo should't be required)
+- follow: https://github.com/chaifeng/ufw-docker/blob/master/README.md
+  - this fixes the issue with the firewall blocking random docker networks (`sudo dmesg | grep '\[UFW'`)
+  - it also fixes security flaw
 
 ## Synergy
 - use Synergy 1 Pro
