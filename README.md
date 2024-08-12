@@ -78,7 +78,6 @@
 - install dconf-editor (dnf)
 - install gnome-shell-extension-appindicator
 - install gnome-shell-extension-dash-to-dock
-- install gnome-shell-extension-netspead
 - install gnome-shell-extension-openweather
 
 ## Gnome
@@ -105,7 +104,6 @@
   - hide Activities button
 - Vitals
 - OpenWeather
-- NetSpeed
 - System-monitor (check prerequistes)
 - Sensory Perception (check prerequistes)
 
